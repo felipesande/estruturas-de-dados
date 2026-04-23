@@ -1,14 +1,14 @@
 # 📚 Abstração e POO aplicadas à Estrutura de Dados
 
-Este conteúdo é a base para compreender estruturas como **listas encadeadas, pilhas e filas**.
+Este conteúdo é a base de Programação Orientada a Objetos dentro de Estruturas de Dados para compreender estruturas como **listas encadeadas, pilhas e filas**.
 
 ---
 
-# 1️⃣ O que é Abstração?
+## 1️⃣ O que é Abstração?
 
-**Abstração** é o processo de esconder detalhes internos e mostrar apenas o essencial.
+**Abstração** é o processo de esconder detalhes internos e mostrar apenas o essencial para o usuário da estrutura.
 
-Exemplo:
+Exemplo clássico:
 
 Controle remoto 📺
 
@@ -26,9 +26,9 @@ Abstração permite criar um **TAD (Tipo Abstrato de Dados)**
 
 ---
 
-## O que é um TAD?
+### O que é um TAD?
 
-Define:
+Um Tipo Abstrato de Dados define:
 
 ✔ o que a estrutura faz  
 ❌ não como ela faz  
@@ -44,13 +44,16 @@ Lista encadeada possui:
 Sem revelar:
 
 - ponteiros
-- organização da memória
+- referências
+- organização interna da memória
+
+Isso é abstração aplicada na prática.
 
 ---
 
-# 2️⃣ Classe vs Objeto
+## 2️⃣ Classe vs Objeto
 
-## Classe
+### Classe
 
 Classe = molde
 
@@ -63,39 +66,47 @@ Não ocupa memória ainda.
 
 Exemplo:
 
+```
 class No
+```
 
 ---
 
-## Objeto
+### Objeto
 
 Objeto = instância da classe
 
 Criado com:
 
+```
 No novoNo = new No()
+```
 
 Agora sim:
 
-📍 memória RAM é reservada
+📍 memória RAM é alocada
 
 ---
 
-## Visualização mental correta
+### Visualização mental correta
 
 Classe:
 
+```
 Projeto do vagão 🚃
+```
 
 Objeto:
 
+```
 Vagão construído
+```
 
 ---
 
-# 3️⃣ Atributos e Métodos
+## 3️⃣ Atributos e Métodos
 
-## Atributos
+### Atributos
 
 Representam:
 
@@ -103,12 +114,14 @@ o que o objeto tem
 
 Exemplo:
 
+```
 int dado  
 No proximo
+```
 
 ---
 
-## Métodos
+### Métodos
 
 Representam:
 
@@ -116,35 +129,43 @@ o que o objeto faz
 
 Exemplo:
 
+```
 getDado()  
 setProximo()
+```
 
 ---
 
-# 4️⃣ Encapsulamento
+## 4️⃣ Encapsulamento
 
 Encapsular significa:
 
 proteger os dados internos do objeto
 
-Regra:
+Regra fundamental em Estrutura de Dados:
 
-Nunca deixar ponteiros públicos
+🚨 Nunca deixar ponteiros públicos
 
 Errado:
 
+```
 public No proximo
+```
 
 Certo:
 
+```
 private No proximo
+```
 
 Acesso permitido apenas via:
 
+```
 getters  
 setters
+```
 
-Evita:
+Isso evita:
 
 - corrupção da lista
 - perda de referências
@@ -152,7 +173,9 @@ Evita:
 
 ---
 
-# 5️⃣ Exemplo correto da classe No
+## 5️⃣ Exemplo correto da classe No
+
+Modelo ideal:
 
 ```java
 public class No {
@@ -179,60 +202,118 @@ public class No {
 }
 ```
 Essa classe representa:
+
 🧱 a peça básica de listas encadeadas
 
 ---
 
-### 6️⃣ Referências (ponteiros em Java)
+## 6️⃣ Referências (ponteiros em Java)
 
 Esse é um dos pontos que mais derrubam alunos.  
-Quando fazemos: `No A = B;`
 
-Não acontece cópia. Acontece:  
-`A ──► mesmo endereço de memória que B`
+Quando fazemos:
 
-**Consequência:** Alterar B altera A também.
+```
+No A = B;
+```
+
+Não acontece cópia.
+
+Acontece:  
+
+```
+A ──► mesmo endereço de memória que B
+```
+
+**Consequência:**
+
+Alterar B altera A também.
 
 ---
 
-### 7️⃣ O valor null
+## 7️⃣ O valor null
 
-Outro erro clássico de prova.  
-`No no = null;` significa:  
-* não aponta para lugar nenhum
+Outro erro clássico de prova.
 
-**Erro típico:** `no.getProximo().getDado()`  
-Se `getProximo() == null`, o resultado é:  
+``` 
+No no = null;
+```
+
+Significa:
+
+não aponta para lugar nenhum.
+
+**Erro típico:**
+
+```
+no.getProximo().getDado()
+```
+
+Se:
+
+```
+getProximo() == null
+```
+
+O resultado é:
+
 💥 **NullPointerException**
 
 ---
 
-### 8️⃣ O conceito de this
+## 8️⃣ O conceito de this
 
-`this` significa:  
+`this` significa:
+
 * este objeto atual
 
-Exemplo: `this.proximo = proximo;` significa que o próximo **deste objeto** será o parâmetro recebido.  
+Exemplo:
+
+```
+this.proximo = proximo;
+```
+
+Significa que o próximo **deste objeto** será o parâmetro recebido.
+
 Sem `this`, o compilador pode confundir o atributo da classe vs variável do método.
 
 ---
 
-### 9️⃣ Construtores (Inicialização segura)
+## 9️⃣ Construtores (Inicialização segura)
 
-**Construtor:** Executa automaticamente quando objeto nasce.  
-Exemplo: `new No(10)` chama `public No(int valor)`.  
+**Construtor:**
 
-**Função:** Garantir que o objeto nunca exista com valores indefinidos.  
-**Regra de ouro:** Objeto nunca deve nascer “sujo”.
+Executa automaticamente quando objeto nasce.
+
+Exemplo:
+
+```
+new No(10)
+```
+
+Chama:
+
+```
+public No(int valor)
+``` 
+
+**Função:**
+
+Garantir que o objeto nunca exista com valores indefinidos.
+
+**Regra de ouro:**
+
+Objeto nunca deve nascer “sujo”.
 
 ---
 
-### 🔟 Sobrecarga de construtores (Overloading)
+## 🔟 Sobrecarga de construtores (Overloading)
 
 * Mesmo nome  
 * Parâmetros diferentes  
 
 Exemplo:
+
 ```java
 public No(int dado) {
     this.dado = dado;
@@ -246,70 +327,243 @@ public No(int dado, No proximo) {
 
 Benefício: Flexibilidade na criação de objetos.
 
-### 1️⃣1️⃣ static vs instância
+## 1️⃣1️⃣ Static vs instância
+
 Erro MUITO comum em prova.
-* **Atributo de instância:** Cada objeto tem o seu. Exemplo: `private int dado;`. Cada nó terá um valor diferente.
-* **Atributo static:** Pertence à classe inteira. Exemplo: `static int contador;`. Todos os objetos compartilham.
 
-🚨 **Nunca usar static em ponteiros de listas** Errado: `static No proximo`. Isso faria todos os nós apontarem para o mesmo endereço, quebrando a estrutura inteira.
+### Atributo de instância
 
-### 1️⃣2️⃣ Passagem por valor vs referência em Java
-* **Tipos primitivos (int, double, boolean):** Passagem por **valor** (cópia).
-* **Objetos:** Passagem por **cópia da referência**. Significa que você altera o objeto original.
-Exemplo: `alterar(no)` muda o objeto real na memória.
+ Cada objeto tem o seu.
+ 
+ Exemplo:
+ 
+ ```
+ private int dado;
+ ```
+ 
+ Cada nó terá um valor diferente.
 
-### 1️⃣3️⃣ Composição vs Agregação
+### Atributo static:
+
+Pertence à classe inteira.
+
+Exemplo:
+
+```
+static int contador;
+```
+
+Todos os objetos compartilham.
+
+🚨 **Nunca usar static em ponteiros de listas** 
+
+Errado:
+
+```
+static No proximo
+```
+
+Isso faria todos os nós apontarem para o mesmo endereço, quebrando a estrutura inteira.
+
+## 1️⃣2️⃣ Passagem por valor vs referência em Java
+
+### Tipos primitivos
+
+Exemplo:
+
+```
+int
+double
+boolean
+```
+
+Passagem por **valor** (cópia).
+
+### Objetos
+
+Passagem por **cópia da referência**.
+
+Significa que você altera o objeto original.
+
+Exemplo:
+
+```
+alterar(no)
+```
+
+muda o objeto real na memória.
+
+## 1️⃣3️⃣ Composição vs Agregação
+
 Muito cobrado em prova teórica.
-* **Composição:** Relação forte. Exemplo: **Lista → Nós**. Se a lista desaparece, os nós deixam de fazer sentido.
-* **Agregação:** Relação fraca. Exemplo: **Curso → Alunos**. Curso acaba, mas os alunos continuam existindo.
 
-### 1️⃣4️⃣ Garbage Collector (Coletor de lixo)
-Java remove objetos automaticamente. Se ninguém aponta para um objeto ele é considerado um "Nó perdido".
+### Composição
+
+Relação forte.
+
+Exemplo:
+
+**Lista → Nós**
+
+Se a lista desaparece, os nós deixam de fazer sentido.
+
+### Agregação
+
+Relação fraca.
+
+Exemplo:
+
+**Curso → Alunos**
+
+Curso acaba, mas os alunos continuam existindo.
+
+## 1️⃣4️⃣ Garbage Collector (Coletor de lixo)
+
+Java remove objetos automaticamente.
+
+Se ninguém aponta para um objeto ele é considerado um "Nó perdido".
+
 Então, o **Garbage Collector** remove da memória.
-* **Resposta correta em prova:** Remover nó = remover todas as referências para ele.
 
-### 1️⃣5️⃣ Classe Gerenciadora (Container)
-Estruturas reais não manipulam apenas nós isolados. Usam uma classe controladora.
-Exemplo: `ListaEncadeada`
+**Resposta correta em prova:**
+
+Remover nó = remover todas as referências para ele.
+
+## 1️⃣5️⃣ Classe Gerenciadora (Container)
+
+Estruturas reais não manipulam apenas nós isolados.
+
+Usam uma classe controladora.
+
+Exemplo:
+
+`ListaEncadeada`
 
 **Responsável por:**
-* `inserir()`
-* `remover()`
-* `buscar()`
 
-**Estrutura típica:**
-Dentro dela existem os atributos `private No head;` e `private int tamanho;`.
-* **Head:** Aponta para o primeiro elemento. Se a lista estiver vazia, `head == null`.
+```
+inserir()
+remover()
+buscar()
+```
+
+### Estrutura típica:
+
+Dentro dela existem os atributos:
+
+```
+private No head;
+private int tamanho;
+```
+
+* **Head:** Aponta para o primeiro elemento.
+
+Se a lista estiver vazia:
+
+```
+head == null
+```
+
 * **Size:** Armazena quantidade de elementos.
-* **Vantagem:** Consulta em $O(1)$. Sem size, precisaria percorrer a lista em $O(n)$.
+**Vantagem:** Consulta em $O(1)$.
 
-### 1️⃣6️⃣ Separação correta de responsabilidades
-* **Classe No:** Só conhece dado e vizinho.
-* **Classe Lista:** Sabe inserir, remover, buscar e tamanho.
-* **Erro clássico:** Colocar lógica da lista dentro da classe No. Isso viola a abstração.
+Sem size, precisaria percorrer a lista em $O(n)$.
 
-### 1️⃣7️⃣ Pegadinha da lista vazia
-Sempre verificar `if(head == null)` antes de acessar `head.getProximo()`. Caso contrário, o programa quebra.
+## 1️⃣6️⃣ Separação correta de responsabilidades
 
-### 1️⃣8️⃣ Problema do “nó perdido”
-Erro clássico: sobrescrever ponteiro antes de salvar referência.
-* **Errado:** `atual.proximo = novo;` antes de salvar o `atual.proximo` original.
+* **Classe No:**
+
+Só conhece:
+
+```
+dado e vizinho.
+```
+
+* **Classe Lista:**
+
+Sabe:
+
+```
+inserir
+remover
+buscar
+tamanho
+```
+
+* **Erro clássico:**
+
+Colocar lógica da lista dentro da classe No.
+
+Isso viola a abstração.
+
+## 1️⃣7️⃣ Pegadinha da lista vazia
+
+Sempre verificar
+
+```
+if(head == null)
+```
+
+Antes de acessar:
+
+```
+head.getProximo()
+```
+
+Caso contrário, o programa quebra.
+
+## 1️⃣8️⃣ Problema do “nó perdido”
+
+Erro clássico:
+
+Sobrescrever ponteiro antes de salvar referência.
+
+* **Errado:**
+
+```
+atual.proximo = novo;
+```
+
+antes de salvar o:
+
+```
+atual.proximo original
+```
+
 * **Certo:**
+
 ```java
 No temp = atual.getProximo();
 atual.setProximo(novo);
 novo.setProximo(temp);
 ```
 
-### 1️⃣9️⃣ Comparação: == vs .equals()
+## 1️⃣9️⃣ Comparação: == vs .equals()
+
 * **`==`**: Compara endereços de memória.
+
 * **`.equals()`**: Compara o conteúdo.
-* **Exemplo correto:** `if(no1.getDado() == no2.getDado())` ou usar o método `.equals()` se o dado for um objeto (como String).
+
+* **Exemplo correto:**
+
+```
+if(no1.equals(no2))
+```
+
+Não:
+
+```
+if(no1 == no2)
+```
+
+a menos que queira verificar se são o mesmo objeto
 
 ---
 
-### 🎯 Resumo estratégico para prova
+## 🎯 Resumo estratégico para prova
+
 Sempre lembrar:
+
 * ✔ Verificar lista vazia
 * ✔ Proteger atributos com `private`
 * ✔ Usar classe gerenciadora
