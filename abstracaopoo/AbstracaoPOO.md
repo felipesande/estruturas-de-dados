@@ -1,10 +1,12 @@
 # 📚 Abstração e POO aplicadas à Estrutura de Dados
 
-Este conteúdo é a base de Programação Orientada a Objetos dentro de Estruturas de Dados para compreender estruturas como **listas encadeadas, pilhas e filas**.
+Este conteúdo é a base de **Programação Orientada a Objetos** dentro de **Estruturas de Dados** para compreender estruturas como **listas encadeadas, pilhas e filas**.
 
 ---
 
 ## 1️⃣ O que é Abstração?
+
+### Definição
 
 **Abstração** é o processo de esconder detalhes internos e mostrar apenas o essencial para o usuário da estrutura.
 
@@ -22,26 +24,28 @@ Você não precisa saber:
 
 Na computação:
 
-Abstração permite criar um **TAD (Tipo Abstrato de Dados)**
+Abstração permite criar um **TAD (Tipo Abstrato de Dados)**.
 
 ---
 
 ### O que é um TAD?
 
-Um Tipo Abstrato de Dados define:
+Um **Tipo Abstrato de Dados** define:
 
 ✔ o que a estrutura faz  
 ❌ não como ela faz  
 
-Exemplo:
+Exemplo: Lista encadeada
 
-Lista encadeada possui:
+Usuário sabe:
 
-- inserir()
-- remover()
-- buscar()
+```
+inserir()
+remover()
+buscar()
+```
 
-Sem revelar:
+Usuário **não precisa saber**:
 
 - ponteiros
 - referências
@@ -84,7 +88,7 @@ No novoNo = new No()
 
 Agora sim:
 
-📍 memória RAM é alocada
+📍 Memória RAM é alocada.
 
 ---
 
@@ -110,7 +114,7 @@ Vagão construído
 
 Representam:
 
-o que o objeto tem
+o que o objeto tem.
 
 Exemplo:
 
@@ -125,7 +129,7 @@ No proximo
 
 Representam:
 
-o que o objeto faz
+o que o objeto faz.
 
 Exemplo:
 
@@ -140,11 +144,11 @@ setProximo()
 
 Encapsular significa:
 
-proteger os dados internos do objeto
+proteger os dados internos do objeto.
 
 Regra fundamental em Estrutura de Dados:
 
-🚨 Nunca deixar ponteiros públicos
+🚨 Nunca deixar ponteiros públicos.
 
 Errado:
 
@@ -203,7 +207,7 @@ public class No {
 ```
 Essa classe representa:
 
-🧱 a peça básica de listas encadeadas
+🧱 A peça básica de listas encadeadas.
 
 ---
 
@@ -241,7 +245,7 @@ No no = null;
 
 Significa:
 
-não aponta para lugar nenhum.
+Não aponta para lugar nenhum.
 
 **Erro típico:**
 
@@ -257,7 +261,7 @@ getProximo() == null
 
 O resultado é:
 
-💥 **NullPointerException**
+💥 **NullPointerException**.
 
 ---
 
@@ -265,7 +269,7 @@ O resultado é:
 
 `this` significa:
 
-* este objeto atual
+Este objeto atual.
 
 Exemplo:
 
@@ -309,8 +313,8 @@ Objeto nunca deve nascer “sujo”.
 
 ## 🔟 Sobrecarga de construtores (Overloading)
 
-* Mesmo nome  
-* Parâmetros diferentes  
+* mesmo nome  
+* parâmetros diferentes  
 
 Exemplo:
 
@@ -343,7 +347,7 @@ Erro MUITO comum em prova.
  
  Cada nó terá um valor diferente.
 
-### Atributo static:
+### Atributo static
 
 Pertence à classe inteira.
 
@@ -391,7 +395,7 @@ Exemplo:
 alterar(no)
 ```
 
-muda o objeto real na memória.
+Muda o objeto real na memória.
 
 ## 1️⃣3️⃣ Composição vs Agregação
 
@@ -465,6 +469,7 @@ head == null
 ```
 
 * **Size:** Armazena quantidade de elementos.
+
 **Vantagem:** Consulta em $O(1)$.
 
 Sem size, precisaria percorrer a lista em $O(n)$.
@@ -476,7 +481,8 @@ Sem size, precisaria percorrer a lista em $O(n)$.
 Só conhece:
 
 ```
-dado e vizinho.
+dado
+vizinho.
 ```
 
 * **Classe Lista:**
@@ -524,7 +530,7 @@ Sobrescrever ponteiro antes de salvar referência.
 atual.proximo = novo;
 ```
 
-antes de salvar o:
+Antes de salvar o:
 
 ```
 atual.proximo original
@@ -544,7 +550,7 @@ novo.setProximo(temp);
 
 * **`.equals()`**: Compara o conteúdo.
 
-* **Exemplo correto:**
+**Exemplo correto:**
 
 ```
 if(no1.equals(no2))
@@ -556,7 +562,7 @@ Não:
 if(no1 == no2)
 ```
 
-a menos que queira verificar se são o mesmo objeto
+A menos que queira verificar se são o mesmo objeto
 
 ---
 
